@@ -37,5 +37,14 @@ try:
     #for i in tweet.data:    
     #    print(i.id , i.text)
     #    response = cliente.create_tweet(in_reply_to_tweet_id=i.id,text='Hello !')
+
+    # Obtendo quantidade de Seguidores por usuario
+    #for i in cliente.get_users_followers(id=1133209118511128576,user_auth=True):
+    #    print(i)
+
+    # Obtendo Id de usuario
+    #cliente.get_users(usernames='vitim_gone', user_auth=True)
+
+     
 except tweepy.TweepyException as e:
     print(e)
