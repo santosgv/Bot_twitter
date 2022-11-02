@@ -1,12 +1,16 @@
-from distutils.command.config import config
 import tweepy
 from decouple import config
 
-auth = tweepy.OAuth1UserHandler(
-    config('API_Key'),config('API_Key_Secret'),config('Bearer_Token')
-    )
+api = tweepy.Client(
+    consumer_key=config('API_Key'),
+    consumer_secret=config('API_Key_Secret'),
+    access_token=config('Access_Token'),
+    access_token_secret=config('Access_Token_Secret')
+)
 
-
-api = tweepy.API(auth)
-
-print(api.verify_credentials().screen_name)
+try:
+    # postando Tweet pelo script
+    tweet = api.create_tweet(text="My Second Tweet for Bot !")
+    print(tweet)
+except:
+    print('Algo deu errado')
