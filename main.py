@@ -12,8 +12,8 @@ cliente = tweepy.Client(
 
 try:
     #postando Tweet pelo script
-    response = cliente.create_tweet(text="My Fisrt Tweet for Bot !")
-    print(response)
+    #response = cliente.create_tweet(text="https://amzn.to/3TyHRrG")
+    #print(response)
     # pesquisando por tweets recentes
     #query ='python'
     #tweet = cliente.search_recent_tweets(query=query,user_auth=True , max_results=100)
@@ -32,13 +32,18 @@ try:
     #print(response)
 
     # comentando tweets da pesquisa recente
-    #query ='python'
-    #tweet = cliente.search_recent_tweets(query=query,user_auth=True , max_result=100)
-    #for i in tweet.data:    
-    #    print(i.id , i.text)
-    #    response = cliente.create_tweet(in_reply_to_tweet_id=i.id,text='Hello !')
+    query ='livros'
+    tweet = cliente.search_recent_tweets(query=query,user_auth=True ,max_results=100)
 
-    # Obtendo quantidade de Seguidores por usuario
+    Arquivo = open("messenger.txt", encoding='utf-8')
+    mensagem = Arquivo.readlines()
+
+    for i in tweet.data:    
+        print(i.id , i.text)
+        response = cliente.create_tweet(in_reply_to_tweet_id=i.id,text=
+        f'{mensagem[0]}{mensagem[1]}{mensagem[2]}{mensagem[3]}{mensagem[4]}'
+        )
+
     #for i in cliente.get_users_followers(id=1133209118511128576,user_auth=True):
     #    print(i)
 
